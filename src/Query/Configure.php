@@ -139,6 +139,10 @@ class Configure
     {
         for ($i = 0; $i < count($this->where); $i++) {
             
+            if(!isset($this->where[$i])){
+                continue;
+            }
+            
             if($this->where[$i]['key'] != $key){
                 continue;
             }
@@ -197,7 +201,11 @@ class Configure
      */
     public function getWhere($key)
     {
-        for ($i = 0; $i < count($this->where); $i++) {  
+        for ($i = 0; $i < count($this->where); $i++) {
+            if(!isset($this->where[$i])){
+                continue;
+            }
+            
             if($this->where[$i]['key'] == $key){
                 return $this->where[$i];
             }
